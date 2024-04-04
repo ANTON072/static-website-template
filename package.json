@@ -1,12 +1,27 @@
 {
   "name": "static-website-template",
+  "engines": {
+    "node": ">=20.x"
+  },
   "scripts": {
+    "start": "run-p start:*",
     "start:11ty": "eleventy --serve",
+    "start:css": "postcss src/assets/css/main.css -o dist/assets/css/main.css --watch",
+    "build": "run-s build:*",
     "build:11ty": "eleventy",
+    "build:css": "postcss src/assets/css/main.css -o dist/assets/css/main.css",
     "format": "prettier --write ."
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "prettier": "3.2.5"
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^6.1.2",
+    "dotenv": "^16.4.5",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "prettier": "3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.13",
+    "tailwindcss": "^3.4.3"
   }
 }
